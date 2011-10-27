@@ -1,15 +1,7 @@
-require 'rubygems'
-require 'open-uri'
-require 'sinatra'
+require 'bundler'
 
-set :public, File.dirname(__FILE__) + '/public'
+Bundler.require
 
-get '/' do
-  open(File.dirname(__FILE__) + '/public/index.html').read
-end
-
-get '/b' do
-  open(params[:url]).read
-end
+require './app.rb'
 
 run Sinatra::Application
